@@ -1,0 +1,38 @@
+/* ! Imports */
+@import "./Styles/Navigation.css";
+@import "./Styles/Mangas.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed" !important;
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+/* ! Pallet */
+:root {
+  --background-color: #f2f2f2;
+  --text-color: #000000;
+  --panel-border: #333333;
+  --highlight-color: #0000ff;
+  --buttons-color: #cccccc;
+}
+a {
+  color: var(--text-color);
+}
+.link:hover {
+  color: var(--highlight-color);
+  cursor: pointer;
+}
+.link-scale:hover {
+  transform: scale(1.03);
+  color: var(--highlight-color);
+  cursor: pointer;
+}

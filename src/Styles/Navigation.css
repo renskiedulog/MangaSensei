@@ -1,0 +1,201 @@
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #0001;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100 !important;
+  transition: top 0.1s;
+}
+.navigation-bar.shown {
+  top: -60px;
+}
+
+.navigation-bar > div {
+  gap: 25px;
+}
+.genre-container {
+  position: fixed;
+  top: 60px;
+  background: #fff;
+  border: 1px solid #0001;
+  display: none;
+  z-index: 10 !important;
+}
+.genre-container.shown {
+  display: flex !important;
+  animation: slide 0.3s ease-in-out;
+}
+@keyframes slide {
+  0% {
+    transform: translateY(-20px);
+  }
+  20%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ! SearchBar */
+.search-bar {
+  width: calc(100% - 12px);
+  border: none;
+  outline: none;
+}
+
+/* ! Back to top btn */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  z-index: 999;
+}
+
+.back-to-top.show {
+  display: block;
+}
+
+.back-to-top button {
+  background-color: var(--highlight-color);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.back-to-top button:hover {
+  background-color: #2525cc;
+}
+.back-to-top button .arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35%;
+  margin-bottom: 60%;
+  border-bottom: 15px solid white;
+}
+
+/* ! Footer */
+.footer-container {
+  padding: 20px;
+  background: #45474b;
+  color: #fff;
+}
+.footer-container p {
+  margin: 10px 10%;
+  text-align: center;
+}
+
+.footer-container .social-card {
+  display: flex;
+  height: 70px;
+  width: 270px;
+  margin: 0 auto;
+}
+
+.footer-container .social-card svg {
+  position: absolute;
+  display: flex;
+  width: 60%;
+  height: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  opacity: 1;
+  transition: opacity 0.25s;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.footer-container .social-card .social-link1,
+.footer-container .social-card .social-link2,
+.footer-container .social-card .social-link3,
+.footer-container .social-card .social-link4 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  scale: 0.7;
+  color: whitesmoke;
+  font-size: 24px;
+  text-decoration: none;
+  transition: 0.25s;
+  border-radius: 50px;
+}
+
+.footer-container .social-card svg {
+  transform: scale(1);
+}
+
+.footer-container .social-card .social-link1:hover {
+  background: #f09433;
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  animation: bounce_613 0.4s linear;
+}
+
+.footer-container .social-card .social-link2:hover {
+  background-color: #00ccff;
+  animation: bounce_613 0.4s linear;
+}
+
+.footer-container .social-card .social-link3:hover {
+  background-color: #5865f2;
+  animation: bounce_613 0.4s linear;
+}
+
+.footer-container .social-card .social-link4:hover {
+  background-color: #12a50b;
+  animation: bounce_613 0.4s linear;
+}
+
+@keyframes bounce_613 {
+  40% {
+    transform: scale(1.2);
+  }
+
+  60% {
+    transform: scale(0.9);
+  }
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

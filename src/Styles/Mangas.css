@@ -1,0 +1,78 @@
+.manga:hover {
+  color: var(--highlight-color) !important;
+  z-index: -1;
+}
+/* ! Manga Container */
+.manga-container {
+  display: grid;
+  height: auto;
+  grid-template-columns: 71% 29%;
+  padding: 10px;
+  padding-top: 0;
+}
+
+/* ! Popular Horizontal */
+.manga-horizontal {
+  display: flex;
+  flex-direction: row !important;
+  overflow-y: scroll;
+  scroll-snap-type: x mandatory;
+}
+.manga-horizontal::-webkit-scrollbar {
+  display: none;
+}
+
+/* ! Top Vertical */
+.top-vertical {
+  display: grid !important;
+  grid-template-columns: 50% 50%;
+}
+
+/* ! Button CSS */
+.cta-btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+
+.cta-btn {
+  opacity: 0.8;
+  position: absolute;
+  font-weight: 600;
+  font-size: 20px;
+  right: 3px;
+}
+.cta-btn div {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* ! Search Result Stack */
+.search-result {
+  flex-direction: row !important;
+  scroll-snap-type: none !important;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.genre-tag {
+  color: var(--highlight-color);
+}
+
+/* ! Pagination */
+.pagination-top {
+  position: absolute;
+  right: 10px;
+  top: -5px;
+}
+.pagination-bottom {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+
+.c-height {
+  min-height: 100vh;
+}

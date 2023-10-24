@@ -1,40 +1,37 @@
+const express = require("express");
 const axios = require("axios");
+const app = express();
+const cors = require("cors"); // Import the CORS middleware
+
+// Enable CORS for your client's domain
+app.use(
+  cors({
+    origin: "https://renskiedulog.github.io",
+    methods: ["GET", "POST"], // Define the allowed methods
+  })
+);
 
 const baseUrl = "https://api.mangadex.org";
 
-export const makeRequest = async ({
-  endpoint,
-  method = "GET",
-  params = {},
-  filter = {},
-}) => {
-  // ! Filter
-  const order = {
-    ...filter,
-  };
-  const finalOrderQuery = {};
-  for (const [key, value] of Object.entries(order)) {
-    finalOrderQuery[`order[${key}]`] = value;
-  }
+app.get("/proxy", async (req, res) => {
+  const { endpoint } = req.query;
 
-  // ! Combine
-  params = {
-    ...params, // Include any existing params
-    ...finalOrderQuery, // Include the contents of finalOrderQuery
-  };
-
-  // ! Request
   try {
-    const res = await axios({
-      method,
-      url: `${baseUrl}${endpoint}`,
-      params,
-    });
-    return res;
+    // Make a request to the MangaDex API
+    const apiResponse = await axios.get(`${baseUrl}${endpoint}`);
+    const data = apiResponse.data;
+
+    // Send the response to your client with CORS headers
+    res.json(data);
   } catch (error) {
-    return [];
+    res.status(500).json({ error: "Error fetching data" });
   }
-};
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Proxy server is running on port ${PORT}`);
+});
 
 export const getFilter = async (filter, limit) => {
   let request = {

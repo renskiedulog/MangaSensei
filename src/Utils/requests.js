@@ -5,6 +5,9 @@ const baseUrl = "https://api.mangadex.org";
 export const makeRequest = async ({
   endpoint,
   method = "GET",
+  headers= {
+'Access-Control-Allow-Origin': 'https://renskiedulog.github.io',
+},
   params = {},
   filter = {},
 }) => {

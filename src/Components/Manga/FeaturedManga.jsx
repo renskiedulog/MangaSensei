@@ -2,7 +2,7 @@ import { Box, CardMedia, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useState, useEffect } from "react";
-import { makeRequest, fetchCoverImages, timeAgo } from "../../Utils/requests";
+import { makeRequest, fetchCoverImages } from "../../Utils/requests";
 
 const FeaturedManga = () => {
   const [featuredManga, setFeaturedManga] = useState(null);

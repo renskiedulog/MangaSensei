@@ -158,7 +158,7 @@ const ReadChapter = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              margin: { xs: "0 2%", md: "0 10%" },
+              margin: { xs: "10px 2%", md: "1% 10%" },
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center", gap: "3px" }}>
@@ -245,12 +245,16 @@ const ReadChapter = () => {
                 (image, index) =>
                   image && (
                     <img
-                      alt={index}
+                      alt={image}
                       src={`https://uploads.mangadex.org/${
                         qualityChoice === "data" ? "data" : "data-saver"
                       }/${chapterHash}/${image}`}
                       key={index}
                       style={{ width: "100%" }}
+                      onError={(e) => {
+                        e.target.src =
+                          "https://www.gmt-sales.com/wp-content/uploads/2015/10/no-image-found.jpg";
+                      }}
                     />
                   )
               )}
@@ -260,7 +264,7 @@ const ReadChapter = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                margin: { xs: "0 2%", md: "0 10%" },
+                margin: { xs: "10px 2%", md: "1% 10%" },
               }}
             >
               <Box sx={{ display: "flex", alignItems: "center", gap: "3px" }}>

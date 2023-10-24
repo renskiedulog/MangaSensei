@@ -8,7 +8,7 @@ const SearchBar = () => {
   const navigate = useNavigate();
 
   const handleOnChange = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     setSearch(value);
   };
 

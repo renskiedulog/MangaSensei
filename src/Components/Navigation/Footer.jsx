@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 
 const Footer = ({ visible }) => (
   <Box className="footer-container">
@@ -7,13 +6,13 @@ const Footer = ({ visible }) => (
       {visible && (
         <>
           {" "}
-          <Link to={`/`} className="link">
+          <a href="/" className="link">
             Privacy Policy
-          </Link>{" "}
+          </a>{" "}
           --{" "}
-          <Link to={`/`} className="link">
+          <a href="/" className="link">
             Terms Conditions
-          </Link>{" "}
+          </a>{" "}
           Why You Should Read Manga Online at MangaSensei.com ? There are many
           reasons you should read Manga online, and if you are a fan of this
           unique storytelling style then learning about them is a must. One of
@@ -37,7 +36,7 @@ const Footer = ({ visible }) => (
       ©2023 MangaSensei.com, all rights reserved.
     </Typography>
     <div className="social-card">
-      <a className="social-link1">
+      <a href="/" className="social-link1">
         <svg
           viewBox="0 0 16 16"
           className="bi bi-instagram"
@@ -53,7 +52,7 @@ const Footer = ({ visible }) => (
           ></path>{" "}
         </svg>
       </a>
-      <a className="social-link2">
+      <a href="/" className="social-link2">
         <svg
           viewBox="0 0 16 16"
           className="bi bi-twitter"
@@ -69,7 +68,7 @@ const Footer = ({ visible }) => (
           ></path>{" "}
         </svg>{" "}
       </a>
-      <a className="social-link3">
+      <a href="/" className="social-link3">
         <svg
           viewBox="0 0 16 16"
           className="bi bi-discord"
@@ -85,7 +84,7 @@ const Footer = ({ visible }) => (
           ></path>{" "}
         </svg>
       </a>
-      <a className="social-link4">
+      <a href="/" className="social-link4">
         <svg
           viewBox="0 0 16 16"
           className="bi bi-whatsapp"

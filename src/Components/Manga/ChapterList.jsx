@@ -42,9 +42,9 @@ function ChapterList({ chapters, manga }) {
         containerRef.current.removeEventListener("scroll", handleScroll);
       }
     };
-  }, []);
+  }, [handleScroll]);
 
-  if (chapters.length == 0) {
+  if (chapters.length === 0) {
     return <div>No Chapters Found.</div>;
   }
 
@@ -79,7 +79,7 @@ function ChapterList({ chapters, manga }) {
             </Link>
           );
         } else {
-          return;
+          return "";
         }
       })}
       {loading && (

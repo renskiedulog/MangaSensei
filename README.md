@@ -14,6 +14,6 @@ Disclaimer:
 The information provided on this website is for educational purposes only and may not always reflect the most up-to-date or accurate data. The owner of this website shall not be liable for any errors or omissions in the content.
 
 Questions or Requests:
-If you have any questions or requests regarding the use of external APIs or the content of this website, please contact [Your Contact Information].
+If you have any questions or requests regarding the use of external APIs or the content of this website, please contact renrendulog@gmail.com
 
 Thank you for respecting our commitment to learning and educational purposes.

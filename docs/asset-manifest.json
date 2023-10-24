@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "MangaSensei/static/css/main.9052b514.css",
-    "main.js": "MangaSensei/static/js/main.31c31299.js",
-    "index.html": "MangaSensei/index.html",
-    "main.9052b514.css.map": "MangaSensei/static/css/main.9052b514.css.map",
-    "main.31c31299.js.map": "MangaSensei/static/js/main.31c31299.js.map"
+    "main.css": "/MangaSensei/static/css/main.9052b514.css",
+    "main.js": "/MangaSensei/static/js/main.31c31299.js",
+    "index.html": "/MangaSensei/index.html",
+    "main.9052b514.css.map": "/MangaSensei/static/css/main.9052b514.css.map",
+    "main.31c31299.js.map": "/MangaSensei/static/js/main.31c31299.js.map"
   },
   "entrypoints": [
     "static/css/main.9052b514.css",

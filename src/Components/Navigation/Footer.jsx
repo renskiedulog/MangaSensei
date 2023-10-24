@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Footer = ({ visible }) => (
   <Box className="footer-container">
@@ -6,13 +7,13 @@ const Footer = ({ visible }) => (
       {visible && (
         <>
           {" "}
-          <a href="#" className="link">
+          <Link to={`/`} className="link">
             Privacy Policy
-          </a>{" "}
+          </Link>{" "}
           --{" "}
-          <a href="#" className="link">
+          <Link to={`/`} className="link">
             Terms Conditions
-          </a>{" "}
+          </Link>{" "}
           Why You Should Read Manga Online at MangaSensei.com ? There are many
           reasons you should read Manga online, and if you are a fan of this
           unique storytelling style then learning about them is a must. One of

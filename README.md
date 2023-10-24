@@ -1,2 +1,2 @@
-# MangaSensei
-MangaSensei is a web based manga site using MangaDex's API built with React / MUI.
+# MangaSensei_2.0
+MangaSensei / React / MangaDex API

@@ -2,8 +2,8 @@ import React from "react";
 import { Button, Box, Select, MenuItem } from "@mui/material";
 
 function Pagination({ totalPage, currentPage, onPageChange, classname }) {
-  const totalPages = totalPage || 0; // Total number of pages in your data
-  const pagesToShow = 5; // Number of pages to display
+  const totalPages = totalPage || 0;
+  const pagesToShow = 5;
 
   const pageRange = (currentPage, totalPages, pagesToShow) => {
     let startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import {
   Box,
   Select,
@@ -153,7 +152,7 @@ const ReadChapter = () => {
           minHeight: "100vh",
         }}
       >
-        {!loading && currentChapterIndex != -1 && (
+        {!loading && currentChapterIndex !== -1 && (
           <Box
             sx={{
               display: "flex",
@@ -231,7 +230,7 @@ const ReadChapter = () => {
             </Box>
           </Box>
         )}
-        {chapterImages.length > 0 && !loading && currentChapterIndex != 1 && (
+        {chapterImages.length > 0 && !loading && currentChapterIndex !== 1 && (
           <>
             <Box
               className="images"
@@ -246,8 +245,9 @@ const ReadChapter = () => {
                 (image, index) =>
                   image && (
                     <img
+                      alt={index}
                       src={`https://uploads.mangadex.org/${
-                        qualityChoice == "data" ? "data" : "data-saver"
+                        qualityChoice === "data" ? "data" : "data-saver"
                       }/${chapterHash}/${image}`}
                       key={index}
                       style={{ width: "100%" }}

@@ -5,7 +5,7 @@ const baseUrl = "https://api.mangadex.org";
 export const makeRequest = async ({
   endpoint,
   method = "GET",
-  headers= {
+  headers = {
 'Access-Control-Allow-Origin': 'https://renskiedulog.github.io',
 },
   params = {},
@@ -30,6 +30,7 @@ export const makeRequest = async ({
   try {
     const res = await axios({
       method,
+      headers,
       url: `${baseUrl}${endpoint}`,
       params,
     });

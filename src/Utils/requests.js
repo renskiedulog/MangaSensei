@@ -1,36 +1,5 @@
 const axios = require("axios");
-const express = require("express");
-const app = express();
-const port = 3000; // Choose a port for your proxy server
-
-const mangaDexApiBaseUrl = "https://api.mangadex.org";
-
-// Enable CORS on your proxy server to allow requests from your front-end
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
-
-app.get("/proxy", async (req, res) => {
-  try {
-    const { endpoint } = req.query;
-    const response = await axios.get(`${mangaDexApiBaseUrl}${endpoint}`);
-    res.json(response.data);
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while making the request." });
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Proxy server is running on port ${port}`);
-});
-
-const proxyBaseUrl = "http://localhost:3000"; // Update with your actual proxy server URL
+const proxyBaseUrl = "http://localhost:4000"; // Update with your actual proxy server URL
 
 export const makeRequest = async ({
   endpoint,

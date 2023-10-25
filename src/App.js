@@ -4,7 +4,7 @@ import "./index.css";
 import { Home, Search, MangaInfo, ReadChapter } from "./Components";
 
 const App = () => (
-  <BrowserRouter basename="/MangaSensei">
+  <BrowserRouter>
     <Box
       className="app-body"
       sx={{
@@ -14,20 +14,16 @@ const App = () => (
       }}
     >
       <Routes>
-        <Route path="/MangaSensei" exact element={<Home />} />
+        <Route path="/" exact element={<Home />} />
         <Route
-          path="/MangaSensei/search/:search"
+          path="/search/:search"
           exact
           element={<Search type="Search" />}
         />
+        <Route path="/:filter" exact element={<Search type="Filter" />} />
+        <Route path="/info/:id" exact element={<MangaInfo />} />
         <Route
-          path="/MangaSensei/:filter"
-          exact
-          element={<Search type="Filter" />}
-        />
-        <Route path="/MangaSensei/info/:id" exact element={<MangaInfo />} />
-        <Route
-          path="/MangaSensei/:mangaId/read/:chapterId"
+          path="/:mangaId/read/:chapterId"
           exact
           element={<ReadChapter />}
         />

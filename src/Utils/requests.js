@@ -1,5 +1,6 @@
 const axios = require("axios");
-const proxyBaseUrl = "http://localhost:4000"; // Update with your actual proxy server URL
+
+const baseUrl = "https://api.mangadex.org";
 
 export const makeRequest = async ({
   endpoint,
@@ -22,17 +23,12 @@ export const makeRequest = async ({
     ...finalOrderQuery, // Include the contents of finalOrderQuery
   };
 
-  console.log({
-    method,
-    url: `${proxyBaseUrl}/proxy`,
-    params: { endpoint, ...params },
-  });
   // ! Request
   try {
     const res = await axios({
       method,
-      url: `${proxyBaseUrl}/proxy`,
-      params: { endpoint, ...params },
+      url: `${baseUrl}${endpoint}`,
+      params,
     });
     return res;
   } catch (error) {

@@ -42,6 +42,8 @@ export const getFilter = async (filter, limit) => {
     method: "GET",
     params: {},
     filter: {},
+    mode: "no-cors",
+    cache: "default",
   };
   const includedTagNames = [filter];
   const tags = await makeRequest(request);

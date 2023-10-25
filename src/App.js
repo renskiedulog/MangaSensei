@@ -4,7 +4,7 @@ import "./index.css";
 import { Home, Search, MangaInfo, ReadChapter } from "./Components";
 
 const App = () => (
-  <BrowserRouter basename="/mangasensei">
+  <BrowserRouter basename="/MangaSensei">
     <Box
       className="app-body"
       sx={{

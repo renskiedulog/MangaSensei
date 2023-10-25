@@ -14,16 +14,20 @@ const App = () => (
       }}
     >
       <Routes>
-        <Route path="/" exact element={<Home />} />
+        <Route path="/MangaSensei" exact element={<Home />} />
         <Route
-          path="/search/:search"
+          path="/MangaSensei/search/:search"
           exact
           element={<Search type="Search" />}
         />
-        <Route path="/:filter" exact element={<Search type="Filter" />} />
-        <Route path="/info/:id" exact element={<MangaInfo />} />
         <Route
-          path="/:mangaId/read/:chapterId"
+          path="/MangaSensei/:filter"
+          exact
+          element={<Search type="Filter" />}
+        />
+        <Route path="/MangaSensei/info/:id" exact element={<MangaInfo />} />
+        <Route
+          path="/MangaSensei/:mangaId/read/:chapterId"
           exact
           element={<ReadChapter />}
         />

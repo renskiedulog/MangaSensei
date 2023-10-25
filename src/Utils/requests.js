@@ -22,6 +22,11 @@ export const makeRequest = async ({
     ...finalOrderQuery, // Include the contents of finalOrderQuery
   };
 
+  console.log({
+    method,
+    url: `${proxyBaseUrl}/proxy`,
+    params: { endpoint, ...params },
+  });
   // ! Request
   try {
     const res = await axios({

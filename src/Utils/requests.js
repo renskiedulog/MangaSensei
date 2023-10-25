@@ -1,36 +1,6 @@
 const axios = require("axios");
-const express = require("express");
-const app = express();
-const port = 3000; // Choose a port for your proxy server
 
-const mangaDexApiBaseUrl = "https://api.mangadex.org";
-
-// Enable CORS on your proxy server to allow requests from your front-end
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
-
-app.get("/proxy", async (req, res) => {
-  try {
-    const { endpoint } = req.query;
-    const response = await axios.get(`${mangaDexApiBaseUrl}${endpoint}`);
-    res.json(response.data);
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while making the request." });
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Proxy server is running on port ${port}`);
-});
-
-const proxyBaseUrl = "http://localhost:3000"; // Update with your actual proxy server URL
+const baseUrl = "https://api.mangadex.org";
 
 export const makeRequest = async ({
   endpoint,
@@ -38,13 +8,29 @@ export const makeRequest = async ({
   params = {},
   filter = {},
 }) => {
-  // ... (your existing code)
+  // ! Filter
+  const order = {
+    ...filter,
+  };
+  const finalOrderQuery = {};
+  for (const [key, value] of Object.entries(order)) {
+    finalOrderQuery[`order[${key}]`] = value;
+  }
 
+  // ! Combine
+  params = {
+    ...params, // Include any existing params
+    ...finalOrderQuery, // Include the contents of finalOrderQuery
+  };
+
+  // ! Request
   try {
     const res = await axios({
       method,
-      url: `${proxyBaseUrl}/proxy`,
-      params: { endpoint, ...params },
+      url: `${baseUrl}${endpoint}`,
+      params,
+      mode: "no-cors",
+      cache: "default",
     });
     return res;
   } catch (error) {
@@ -58,8 +44,6 @@ export const getFilter = async (filter, limit) => {
     method: "GET",
     params: {},
     filter: {},
-    mode: "no-cors",
-    cache: "default",
   };
   const includedTagNames = [filter];
   const tags = await makeRequest(request);

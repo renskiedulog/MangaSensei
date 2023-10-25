@@ -1,6 +1,36 @@
 const axios = require("axios");
+const express = require("express");
+const app = express();
+const port = 3000; // Choose a port for your proxy server
 
-const baseUrl = "https://api.mangadex.org";
+const mangaDexApiBaseUrl = "https://api.mangadex.org";
+
+// Enable CORS on your proxy server to allow requests from your front-end
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
+app.get("/proxy", async (req, res) => {
+  try {
+    const { endpoint } = req.query;
+    const response = await axios.get(`${mangaDexApiBaseUrl}${endpoint}`);
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while making the request." });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Proxy server is running on port ${port}`);
+});
+
+const proxyBaseUrl = "http://localhost:3000"; // Update with your actual proxy server URL
 
 export const makeRequest = async ({
   endpoint,
@@ -8,27 +38,13 @@ export const makeRequest = async ({
   params = {},
   filter = {},
 }) => {
-  // ! Filter
-  const order = {
-    ...filter,
-  };
-  const finalOrderQuery = {};
-  for (const [key, value] of Object.entries(order)) {
-    finalOrderQuery[`order[${key}]`] = value;
-  }
+  // ... (your existing code)
 
-  // ! Combine
-  params = {
-    ...params, // Include any existing params
-    ...finalOrderQuery, // Include the contents of finalOrderQuery
-  };
-
-  // ! Request
   try {
     const res = await axios({
       method,
-      url: `${baseUrl}${endpoint}`,
-      params,
+      url: `${proxyBaseUrl}/proxy`,
+      params: { endpoint, ...params },
     });
     return res;
   } catch (error) {
